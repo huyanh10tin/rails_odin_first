@@ -1,5 +1,6 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
+<p><%= image_tag(@article.image.url, class:"imgBorder") if @article.image_file_size.to_i > 0 %></p>
 <h3>Comments(<%= @article.comments.count %>): </h3>
 <%= render partial: "articles/comment", collection: @article.comments %>
 <%= render partial: "comments/form", local:{article: @article} %>
@@ -15,4 +16,4 @@
 <br>
 <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Readly delete me? "} %>
 <br>
-<%= link_to "Edit Me", edit_article_path(@article) %>
+<%= link_to "Edit Me", edit_article_path(@article), :class => "link hover-2" %>
