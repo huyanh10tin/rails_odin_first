@@ -3,8 +3,10 @@ class ArticlesController < ApplicationController
 	def index
 		@articles = Article.all
 	end
+	
 	def show
 		@article = Article.find(params[:id])
+		@comment = Comment.new
 	end
 	def new
 		@article = Article.new
@@ -12,8 +14,7 @@ class ArticlesController < ApplicationController
 	def create
 		@article = Article.new(article_params)
 		@article.save
-		cow = [1,2,3]
-		
+		# cow = [1,2,3]
 		redirect_to article_path(@article)
 	end
 	def edit

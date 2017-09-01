@@ -1,6 +1,17 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
-<%= link_to "<< Back to the Articles >>", articles_path %>
+<h3>Comments(<%= @article.comments.count %>): </h3>
+<%= render partial: "articles/comment", collection: @article.comments %>
+<%= render partial: "comments/form", local:{article: @article} %>
+<br>
+<p>
+	Tags:
+	<% @article.tags.each do |tag| %>
+		<%= link_to tag.name, tag_path(tag) %>
+	<% end %>
+</p>
+<br>
+<%= link_to "<< Back to the Articles", articles_path %>
 <br>
 <%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Readly delete me? "} %>
 <br>
