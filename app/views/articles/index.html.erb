@@ -3,6 +3,7 @@
 	<% @articles.each do |article| %>
 		<li>
 		<%= link_to article.title, article_path(article) %>
+		<span class="badge">Views:<%= article.view_count %></span>
 		</li>
 	<% end %>
 </ul>

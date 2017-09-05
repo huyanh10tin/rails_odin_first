@@ -4,9 +4,16 @@ class ArticlesController < ApplicationController
 	def index
 		@articles = Article.all
 	end
-	
+	def feed
+		@articles = Article.all
+		respond_to do |format|
+			format.rss {render :layout => false}
+		end
+	end
 	def show
 		@article = Article.find(params[:id])
+		@article.view_count = @article.view_count + 1
+		@article.save
 		@comment = Comment.new
 	end
 	def new
