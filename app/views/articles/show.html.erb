@@ -1,6 +1,6 @@
 <h1><%= @article.title %></h1>
 <p><%= @article.body %></p>
-<p><%= image_tag(@article.image.url, class:"imgBorder") %></p>
+<p><%= image_tag(@article.image.url(:large), class:"imgBorder") %></p>
 <h3>Comments(<%= @article.comments.count %>): </h3>
 <%= render partial: "articles/comment", collection: @article.comments %>
 <%= render partial: "comments/form", local:{article: @article} %>
