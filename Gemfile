@@ -4,8 +4,9 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-gem 'imagemagick-identify'
-gem 'paperclip'
+# gem 'imagemagick-identify'
+gem "paperclip", "~> 5.0.0"
+gem 'sorcery'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'

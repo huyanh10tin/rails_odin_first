@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170901064940) do
     t.datetime "updated_at", null: false
     t.string "image_file_name"
     t.string "image_content_type"
-    t.string "image_file_size"
+    t.integer "image_file_size"
     t.datetime "image_updated_at"
   end
 
