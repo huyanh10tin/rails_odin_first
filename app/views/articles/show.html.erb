@@ -13,7 +13,10 @@
 </p>
 <br>
 <%= link_to "<< Back to the Articles", articles_path %>
-<br>
-<%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Readly delete me? "} %>
-<br>
-<%= link_to "Edit Me", edit_article_path(@article) %>
+<% if logged_in? %>
+	<br>
+	<%= link_to "Delete this article", article_path(@article), method: :delete, data: {confirm: "Readly delete me? "} %>
+	<br>
+	<%= link_to "Edit Me", edit_article_path(@article) %>
+<% end %>
+
